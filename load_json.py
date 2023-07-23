@@ -43,11 +43,19 @@ def delete_row_from_bigquery(name_arg):
         print(errors)
     print(f"Successfully deleted {name_arg} from the table")
 
+def download_dataframe_from_bigquery():
+    """
+    Function that downloads dataframe of entire table from bigquery table
+    """
+    client = bigquery.Client()
+    table_id = 'modern-photon-393714.firstProjDataset.firstProjTable'
+    data_frame = client.list_rows(table_id).to_dataframe(create_bqstorage_client=True)
+    for row in data_frame:
+        print(row['name'] + ', ' + row['phoneNumber'])
 
 def main():
     """
     Main function of the program
     """
-    delete_row_from_bigquery("Carter")
 
 main()
