@@ -1,2 +1,3 @@
 pylint
 google-cloud-bigquery
+pytest
