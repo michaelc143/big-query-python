@@ -25,6 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Lint with pylint
-      run: pylint load_json.py --fail-under=9.0
+      run: pylint load_json.py --fail-under=9.0 --good-names="df"
     - name: Test with pytest
       run: pytest
