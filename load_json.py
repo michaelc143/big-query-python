@@ -1,6 +1,7 @@
 """
 Python script used to insert to and read from big query database
 """
+import pandas as pd
 from google.cloud import bigquery
 
 def insert_json_to_bigquery(name_arg='test_name', phone_arg=0):
@@ -53,9 +54,23 @@ def download_dataframe_from_bigquery():
     for row in data_frame:
         print(row['name'] + ', ' + row['phoneNumber'])
 
+def bigquery_data_generator() -> pd.DataFrame:
+    """
+    Method to generate bigquery data
+    """
+    data = [
+        ["Michael C", "925"],
+        ["Michael A", "914"],
+        ["Michael B", "836"],
+        ["Michael D", "016"],
+    ]
+    df = pd.DataFrame(data, columns = ["name","phoneNumber"])
+    return df
+
 def main():
     """
     Main function of the program
     """
+    print(bigquery_data_generator())
 
 main()

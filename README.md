@@ -19,6 +19,11 @@ git clone https://github.com/michaelc143/big-query-python.git
 pip install -r requirements.txt
 ```
 
+* Make sure you are logged into gcloud authentication by running the following:
+```bash
+gcloud auth login
+```
+
 * Finally, run the following to run the script:
 ```bash
 python3 load_json.py
